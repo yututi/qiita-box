@@ -14,6 +14,7 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+      - name: Execute update process
         uses: ./
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
