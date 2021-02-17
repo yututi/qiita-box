@@ -1,5 +1,0 @@
-name: 'Update Gist'
-
-runs:
-  using: 'node12'
-  main: 'src/index.js'
