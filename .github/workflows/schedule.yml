@@ -1,6 +1,8 @@
 name: 最近のQiita投稿記事をGistに反映する
 
 on:
+  push:
+    branches: [ main ]
   schedule:
     - cron: "0 21 * * *" # JST 6:00
 
