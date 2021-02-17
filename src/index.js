@@ -8,7 +8,7 @@ const MAX_LENGTH = 54
 
 const {
   GIST_ID,
-  GITHUB_TOKEN,
+  GH_TOKEN,
   QIITA_API_KEY
 } = process.env
 
@@ -23,7 +23,7 @@ const main = async () => {
 
   const gistBox = new GistBox({
     id: GIST_ID,
-    token: GITHUB_TOKEN
+    token: GH_TOKEN
   })
   const title = '最近のQiita投稿記事'
   gistBox.update({
