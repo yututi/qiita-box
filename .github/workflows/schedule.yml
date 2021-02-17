@@ -1,0 +1,19 @@
+name: 最近のQiita投稿記事をGistに反映する
+
+on:
+  schedule:
+    - cron: "0 21 * * *" # JST 6:00
+
+jobs:
+
+  build:
+    name: Update-gist
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+        uses: ./
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: 218995479e8a32aafab2b2dcd0c096eb
+          QIITA_API_KEY: ${{ secrets.QIITA_API_KEY }}
