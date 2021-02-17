@@ -15,7 +15,7 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
       - name: Execute update process
-        uses: yututi/qiita-box@master
+        uses: yututi/qiita-box@main
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: 218995479e8a32aafab2b2dcd0c096eb
