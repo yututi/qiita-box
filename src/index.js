@@ -1,9 +1,8 @@
-const {
-  GistBox,
-  // MAX_LENGTH, // 63ははみ出る...
-  MAX_LINES
-} = require('gist-box')
+const GitHub = require('./GitHub')
 const Qiita = require('./Qiita')
+
+// max visible lines of the pinned gists.
+const MAX_LINES = 5
 
 const {
   GIST_ID,
@@ -20,16 +19,20 @@ const main = async () => {
 
   const content = posts.map(toGistContent).join('\r\n')
 
-  const gistBox = new GistBox({
-    id: GIST_ID,
-    token: GH_TOKEN
-  })
+  const gistBox = new GitHub(GH_TOKEN)
   const title = '最近のQiita投稿記事'
-  gistBox.update({
-    filename: title,
-    description: title,
-    content: content
-  })
+
+  const userid = posts.pop().user.id
+
+  gistBox.updateGistWithComment(
+    GIST_ID,
+    {
+      filename: title,
+      description: title,
+      content
+    },
+    `https://qiita.com/${userid}`
+  )
 }
 
 const toGistContent = (post) => {
