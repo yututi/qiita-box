@@ -4,7 +4,6 @@ const {
   MAX_LINES
 } = require('gist-box')
 const Qiita = require('./Qiita')
-const MAX_LENGTH = 54
 
 const {
   GIST_ID,
@@ -40,36 +39,8 @@ const toGistContent = (post) => {
     // url
   } = post
   const date = new Date(updatedAtStr)
-  const dateLabel = `📅 ${date.getMonth() + 1}/${date.getDate()}`.padStart(7)
-  const titleByteLen = byteLen(title)
-  let contentLenth = titleByteLen + dateLabel.length
-  let title4Update = title
-  if (contentLenth > MAX_LENGTH) {
-    title4Update = truncate(title, MAX_LENGTH - dateLabel.length, '...')
-  }
-  contentLenth = byteLen(title4Update) + dateLabel.length
-  const remain = MAX_LENGTH - contentLenth
-
-  return `${title4Update}${dateLabel.padStart(remain + dateLabel.length)}`
-}
-
-function truncate (text, max, trailer) {
-  let byteLen = 0
-  for (let i = 0; i < text.length; i++) {
-    byteLen += text.charCodeAt(i) <= 255 ? 1 : 2
-    if (byteLen > max - trailer.length) {
-      return text.substr(0, i) + trailer
-    }
-  }
-  return text
-}
-
-function byteLen (text) {
-  let byteLen = 0
-  for (let i = 0; i < text.length; i++) {
-    byteLen += text.charCodeAt(i) <= 255 ? 1 : 2
-  }
-  return byteLen
+  const dateLabel = `📅${date.getMonth() + 1}/${date.getDate()}:`.padEnd(8)
+  return `${dateLabel}${title}`
 }
 
 main()
