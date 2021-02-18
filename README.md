@@ -3,7 +3,7 @@
 <p align="center">
   <img width="400" src="https://user-images.githubusercontent.com/19887059/108340777-507dbb00-721c-11eb-8d98-97de5538067a.png">
   <h3 align="center">qiita-box</h3>
-  <p align="center">[Qiita](https://qiita.com/)に投稿した記事一覧をもとにGistの内容を更新します。</p>
+  <p align="center"><a href="https://qiita.com/">Qiita</a>に投稿した記事一覧をもとにGistの内容を更新します。</p>
 </p>
 
 ## セットアップ
