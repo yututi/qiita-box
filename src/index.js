@@ -64,7 +64,7 @@ const toMarkdownContent = (post) => {
     url
   } = post
   const date = new Date(updatedAtStr)
-  const dateLabel = `📅 ${date.getMonth() + 1}/${date.getDate()}:`.padEnd(9)
+  const dateLabel = `📅 (${date.getMonth() + 1}/${date.getDate()})`.padEnd(10)
   return `${dateLabel}[${title}](${url})`
 }
 
