@@ -22,7 +22,7 @@ const main = async () => {
     return console.log('Qiitaの記事がありません')
   }
 
-  const title = '📰 最近のQiita投稿記事'
+  const title = '📰 最近のQiita投稿記事 📰'
   if (GIST_ID) {
     const content = posts.map(toGistContent).join('\r\n')
 
@@ -42,7 +42,7 @@ const main = async () => {
   }
   if (MARKDOWN_FILE) {
     const content = posts.map(toMarkdownContent).join('  \r\n')
-    updateMarkdown(title, content)
+    updateMarkdown(`### ${title}`, content)
   }
 }
 
