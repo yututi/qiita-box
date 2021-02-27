@@ -77,8 +77,7 @@ const updateMarkdown = (title, contents) => {
   const end = '<!-- qiita-box end -->'
   const before = markdown.substring(0, markdown.indexOf(start) + start.length)
   const after = markdown.substring(markdown.indexOf(end))
-  const newMarkdown = `
-  ${before}  \n${title}  \n${contents}  \n${after}`
+  const newMarkdown = `${before}  \n${title}  \n${contents}  \n${after}`
 
   fs.writeFileSync(MARKDOWN_FILE, newMarkdown, {
     encoding: 'utf-8'
